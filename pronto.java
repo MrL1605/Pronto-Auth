@@ -19,13 +19,16 @@ class pronto{
 	private static final String username = "UrUsername";
 	private static final String pass = "UrPassword";
 	public static final String url = "http://phc.prontonetworks.com/cgi-bin/authlogin?URI=http://captive.apple.com/fEi7l7fzH/Art26D1hO/1D6QulJRI/jc91LbRjA.html";
+	public static long start;
 
 	public static void main(String argrs[]){
 
+		String message = "";
+		
 		for (int i=0; i<3; i++){
 			try {
 				Calendar cal = Calendar.getInstance();
-				long start = cal.getTimeInMillis();
+				start = cal.getTimeInMillis();
 				
 				Map<String, String> form_data = new HashMap<>();
 				form_data.put("userId", username);
@@ -53,45 +56,59 @@ class pronto{
 				if (matcher.find()) {
 					matcher = Pattern.compile("\\bfree access quota\\b").matcher(txt);
 			   	    if (matcher.find()) {
-						System.out.println("\n\nResult : " + " Free quota over for " + username + "  :(");
+						message = " Free quota over for " + username + "\t  (︶︹︺)";
+						end_program(message);
 						break;
 					}
 					matcher = Pattern.compile("\\baccount does not exists\\b").matcher(txt);
 			   	    if (matcher.find()) {
-						System.out.println("\n\nResult : " + " Wrong Username, No account exists with username : " + username);
+						message = " Wrong Username, No account exists with username : " + username + "\t ¯\\_(ツ)_/¯";
+						end_program(message);
 						break;
 					}
 					matcher = Pattern.compile("\\busername and password\\b").matcher(txt);
 			   	    if (matcher.find()) {
-						System.out.println("\n\nResult : " + " Wrong Password :V ");
+						message = " Wrong Password \t (╯°□°)╯︵ ┻━┻ ";
+						end_program(message);
 						break;
 					}
 					matcher = Pattern.compile("\\bthere was an error\\b").matcher(txt);
 			   	    if (matcher.find()) {
-						System.out.println("\n\nResult : " + " Probably already logged in somewhere else. Trying again - " + (i + 1));
+						message = " Probably already logged in somewhere else. Trying again - " + (i + 1) + "\t ┌П┐(►˛◄’!)";
+						end_program(message);
 					}
 				}else{
 					matcher = Pattern.compile("\\bCongratulations\\b").matcher(txt);
 			   	    if (matcher.find()) {
-						System.out.println("\n\nResult : " + " Logged In ");
+						message = " Logged In.\t ┌(˘⌣˘)ʃ";
+						end_program(message);
 						break;
 					}else{
-				        System.out.println("\n\nResult : " + " Already Logged In ");
+				        message = " Already Logged In.\t ᕕ( ᐛ )ᕗ";				    
+						end_program(message);
 						break;
 					}
 				}
-				cal = Calendar.getInstance();
-				long end = cal.getTimeInMillis();
-				System.out.println("completed in " + (end - start)/1000 + "sec");
 			
 			} catch (UnknownHostException uhe){
-				System.out.println("\n\nResult: Probably Not connected to VOLSBB\nError Occured UnknownHostException");
+				message = " Probably Not connected to VOLSBB\t  (」ﾟﾛﾟ)｣NOOOooooo━";
+				end_program(message);		
 				break;
 			} catch (Exception e) {
-			   	System.out.println("\nError Occured trying again - "+ (i + 1) +"\n");
+			   	message = " Error Occured. Trying again - "+ (i + 1) +" (」ﾟﾛﾟ)｣NOOOooo━";  	
+			   	end_program(message);
 			   	System.out.println("Error:  " + e);
 			}
 		}	
+	}
+	
+	public static void end_program(String message){
+
+		Calendar cal = Calendar.getInstance();
+		long end = cal.getTimeInMillis();
+		System.out.println("\n\nResult : " + message); 
+		System.out.println("completed in " + (end - start)/1000 + "sec");
+
 	}
 }
 
