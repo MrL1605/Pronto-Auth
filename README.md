@@ -4,7 +4,7 @@ Pronto Auth can be used to in Authentication of VOLSBB network in VIT University
 ### Features
 ---
  - Easy to use.
- - Faster Login than Browser Login.
+ - Faster Login/Logout than Browser Login/Logout.
  - All cases handled including - Not connected, Free Quota over, etc.
  - No need to wait for Browser to render Pronto Login page and then enter password to Login.
  - Has cute Emoticons. ٩(^ᴗ^)۶
@@ -29,9 +29,14 @@ Pronto Auth can be used to in Authentication of VOLSBB network in VIT University
     $ javac pronto.java
     $ java pronto
 ```
- - For later use simply use 
+ - For later use simply use;
 ```sh
     $ java pronto
+```
+ - To logout, no changes required ;
+```sh
+	$ javac logout.java
+    $ java logout
 ```
 
 ### Usage
@@ -41,12 +46,11 @@ Now that you have Run it the first time.For later use (when you want to show off
  - Terminal using shortcut -> Ctrl + Alt + T
  - CMD using -> Start -> Type "cmd" -> Press Enter
 
-Type following command : (easy to rememeber)
-```sh
-    $ java pronto
-```
+Type following command : `java pronto`
 
 That's all, you are logged in.
+
+To logout : `java logout`
 
 ### Bugs and Features
 ---

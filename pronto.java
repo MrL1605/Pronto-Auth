@@ -24,7 +24,6 @@ class pronto{
 	public static void main(String argrs[]){
 
 		String message = "";
-		
 		for (int i=0; i<3; i++){
 			try {
 				Calendar cal = Calendar.getInstance();
