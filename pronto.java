@@ -59,9 +59,9 @@ class pronto{
 						end_program(message);
 						break;
 					}
-					matcher = Pattern.compile("\\baccount does not exists\\b").matcher(txt);
+					matcher = Pattern.compile("\\b account does not exist. \\b").matcher(txt);
 			   	    if (matcher.find()) {
-						message = " Wrong Username, No account exists with username : " + username + "\t ¯\\_(ツ)_/¯";
+				   		message = " Wrong Username, No account exists with username : " + username + "\t ¯\\_(ツ)_/¯";
 						end_program(message);
 						break;
 					}
@@ -75,6 +75,8 @@ class pronto{
 			   	    if (matcher.find()) {
 						message = " Probably already logged in somewhere else. Trying again - " + (i + 1) + "\t ┌П┐(►˛◄’!)";
 						end_program(message);
+					}else{
+						System.out.println("Got in" + txt);
 					}
 				}else{
 					matcher = Pattern.compile("\\bCongratulations\\b").matcher(txt);
@@ -88,7 +90,8 @@ class pronto{
 						break;
 					}
 				}
-			
+				System.out.println("Trying again " + (i+1));
+
 			} catch (UnknownHostException uhe){
 				message = " Probably Not connected to VOLSBB\t  (」ﾟﾛﾟ)｣NOOOooooo━";
 				end_program(message);		
@@ -102,12 +105,15 @@ class pronto{
 	}
 	
 	public static void end_program(String message){
+		/**
+		 *	To be executed at end of program. 
+		 */
 
 		Calendar cal = Calendar.getInstance();
 		long end = cal.getTimeInMillis();
 		System.out.println("\n\nResult : " + message); 
 		System.out.println("completed in " + (end - start)/1000 + "sec");
-
+		
 	}
 }
 

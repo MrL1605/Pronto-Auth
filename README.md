@@ -66,11 +66,12 @@ If your problem or idea is not addressed yet, please [open a new issue][issue].
 
 Contribute away.
 
-Code released under the MIT license.
+Code released under the [MIT license][license].
 
 
 
  [issue]: <https://github.com/MrL1605/Pronto-Auth/issues>
  [jsoup]: <http://jsoup.org/>
  [emoticons]: <http://japaneseemoticons.me>
+ [license]: <https://github.com/MrL1605/Pronto-Auth/blob/master/LICENSE>
 
