@@ -8,7 +8,8 @@ Pronto Auth can be used to in Authentication of VOLSBB network in VIT University
  - All cases handled including - Not connected, Free Quota over, etc.
  - No need to wait for Browser to render Pronto Login page and then enter password to Login.
  - Has cute Emoticons. ٩(^ᴗ^)۶
-
+ - Has Ubuntu Desktop Notifications.
+ 
 
 ### How-to
 ---

@@ -106,7 +106,7 @@ class pronto{
 	
 	public static void end_program(String message){
 		/**
-		 *	To be executed at end of program. 
+		 *	To be executed at end of program to display messages and notifications.
 		 */
 
 		Calendar cal = Calendar.getInstance();
@@ -114,6 +114,22 @@ class pronto{
 		System.out.println("\n\nResult : " + message); 
 		System.out.println("completed in " + (end - start)/1000 + "sec");
 		
+		// This will work only If your system is UBUNTU
+		try{
+			// Command as a string array
+			String[] cmd = {"notify-send",
+							"-t",
+							"1000",
+							"Pronto-Auth",
+							""};
+			cmd[4] = message;
+			// To execute a command 
+			Runtime.getRuntime().exec(cmd);
+
+		}catch(Exception ignore){
+			// Else ignores
+		}
+
 	}
 }
 
